@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Inyangala — Data Engineering Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;700;800&family=Fraunces:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#080c10;
+--bg2:#0d1117;
+--panel:#131c26;
+--border:#1e2d3d;
+--accent:#00d4ff;
+--accent2:#00ff99;
+--text:#c9d8e8;
+--muted:#5a7a94;
+--heading:#e8f4ff;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+background:var(--bg);
+color:var(--text);
+font-family:'DM Mono',monospace;
+line-height:1.7;
+font-size:14px;
+}
+
+section{
+max-width:1100px;
+margin:auto;
+padding:60px 40px;
+}
+
+.section-title{
+font-family:'Syne',sans-serif;
+font-size:40px;
+font-weight:800;
+margin-bottom:10px;
+color:var(--heading);
+}
+
+.section-title em{
+font-family:'Fraunces',serif;
+font-style:italic;
+color:var(--accent);
+}
+
+.section-sub{
+color:var(--muted);
+margin-bottom:36px;
+}
+
+nav{
+position:fixed;
+top:0;
+left:0;
+right:0;
+padding:18px 40px;
+background:rgba(8,12,16,0.9);
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid var(--border);
+z-index:100;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+.nav-links a{
+color:var(--muted);
+text-decoration:none;
+font-size:12px;
+letter-spacing:.1em;
+text-transform:uppercase;
+}
+
+.hero{
+padding-top:120px;
+max-width:1100px;
+margin:auto;
+padding-bottom:60px;
+text-align:center;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.hero h1{
+font-family:'Syne',sans-serif;
+font-size:72px;
+font-weight:800;
+color:var(--heading);
+}
+
+.hero h1 em{
+font-family:'Fraunces',serif;
+font-style:italic;
+color:var(--accent);
+}
+
+.hero-sub{
+font-size:22px;
+margin-top:10px;
+color:var(--muted);
+}
+
+.hero-desc{
+margin-top:20px;
+max-width:600px;
+color:var(--text);
+}
+
+/* ── What I Deliver ─────────────────────────────────── */
+
+#deliver{
+background:var(--bg2);
+max-width:100%;
+padding:60px 40px;
+}
+
+#deliver > *{
+max-width:1100px;
+margin-left:auto;
+margin-right:auto;
+}
+
+#deliver .section-title,
+#deliver .section-sub{
+max-width:1100px;
+margin-left:auto;
+margin-right:auto;
+display:block;
+}
+
+.deliver-grid{
+max-width:1100px;
+margin:0 auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.deliver-card{
+background:var(--panel);
+border:1px solid var(--border);
+padding:32px 28px;
+position:relative;
+overflow:hidden;
+transition:border-color .25s, transform .25s;
+}
+
+.deliver-card::before{
+content:'';
+position:absolute;
+top:0;
+left:0;
+right:0;
+height:2px;
+background:linear-gradient(90deg, var(--accent), var(--accent2));
+opacity:0;
+transition:opacity .25s;
+}
+
+.deliver-card:hover{
+border-color:var(--accent);
+transform:translateY(-4px);
+}
+
+.deliver-card:hover::before{
+opacity:1;
+}
+
+.deliver-card h3{
+font-family:'Syne',sans-serif;
+font-size:15px;
+font-weight:700;
+color:var(--heading);
+margin-bottom:14px;
+letter-spacing:.02em;
+}
+
+.deliver-card p{
+font-size:12px;
+color:var(--muted);
+line-height:1.75;
+}
+
+/* ── Timeline ───────────────────────────────────────── */
+
+.timeline{
+position:relative;
+}
+
+.timeline-line{
+position:absolute;
+left:160px;
+top:0;
+bottom:0;
+width:1px;
+background:var(--border);
+}
+
+.timeline-item{
+display:grid;
+grid-template-columns:160px 1fr;
+gap:40px;
+margin-bottom:50px;
+position:relative;
+}
+
+.timeline-item::before{
+content:'';
+position:absolute;
+left:152px;
+top:10px;
+width:10px;
+height:10px;
+border-radius:50%;
+background:var(--bg);
+border:2px solid var(--border);
+}
+
+.timeline-date{
+text-align:right;
+padding-right:40px;
+font-size:12px;
+color:var(--muted);
+}
+
+.timeline-role{
+font-family:'Syne',sans-serif;
+font-weight:700;
+font-size:18px;
+color:var(--heading);
+}
+
+.timeline-company{
+font-size:11px;
+letter-spacing:.1em;
+color:var(--accent);
+margin-bottom:10px;
+text-transform:uppercase;
+}
+
+.timeline-desc{
+font-size:13px;
+color:var(--muted);
+margin-bottom:14px;
+}
+
+.impact-list{
+list-style:none;
+}
+
+.impact-list li{
+display:flex;
+gap:8px;
+font-size:13px;
+margin-bottom:6px;
+}
+
+.impact-arrow{
+color:var(--accent);
+}
+
+.tech-tags{
+margin-top:12px;
+display:flex;
+flex-wrap:wrap;
+gap:6px;
+}
+
+.tag{
+border:1px solid var(--border);
+padding:4px 8px;
+font-size:10px;
+letter-spacing:.1em;
+text-transform:uppercase;
+color:var(--muted);
+}
+
+/* ── Skills Grid ────────────────────────────────────── */
+
+.skills-grid{
+display:flex;
+flex-direction:column;
+gap:32px;
+}
+
+.skill-group{
+display:grid;
+grid-template-columns:220px 1fr;
+gap:20px;
+align-items:start;
+padding-bottom:32px;
+border-bottom:1px solid var(--border);
+}
+
+.skill-group:last-child{
+border-bottom:none;
+padding-bottom:0;
+}
+
+.skill-group-label{
+font-family:'Syne',sans-serif;
+font-size:11px;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
+color:var(--accent);
+padding-top:6px;
+}
+
+.skill-tags{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.skill-tag{
+background:var(--panel);
+border:1px solid var(--border);
+padding:5px 12px;
+font-size:11px;
+letter-spacing:.06em;
+color:var(--text);
+transition:border-color .2s, color .2s;
+cursor:default;
+}
+
+.skill-tag:hover{
+border-color:var(--accent);
+color:var(--accent);
+}
+
+@media(max-width:700px){
+.skill-group{
+grid-template-columns:1fr;
+gap:10px;
+}
+}
+
+footer{
+border-top:1px solid var(--border);
+padding:30px;
+text-align:center;
+color:var(--muted);
+font-size:12px;
+}
+
+@media(max-width:900px){
+.deliver-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:700px){
+
+.deliver-grid{
+grid-template-columns:1fr;
+}
+
+.timeline-line{display:none}
+
+.timeline-item{
+grid-template-columns:1fr;
+}
+
+.timeline-date{
+text-align:left;
+padding:0;
+}
+
+.timeline-item::before{display:none}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div style="font-family:'Syne';font-weight:800">JI<span style="color:var(--accent)">.</span></div>
+
+<ul class="nav-links">
+<li><a href="#projects">Projects</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+
+<div class="hero">
+<h1><em>Job Inyangala</em></h1>
+<p class="hero-sub">Senior Data Analytics Engineer</p>
+
+<p class="hero-desc">
+Building data pipelines that scale, ML systems that predict, and architectures that last.
+7+ years turning raw data into business impact across fintech, energy, telecom and edtech.
+</p>
+</div>
+
+
+<!-- WHAT I DELIVER -->
+<section id="deliver">
+<h2 class="section-title"> <em>What I Deliver</em></h2>
+<p class="section-sub">Capabilities I bring to data platforms and analytics teams.</p>
+<div class="deliver-grid">
+  <div class="deliver-card">
+    <h3>01 - Data Engineering</h3>
+    <p>Design and deploy scalable ETL/ELT pipelines multiple stacks.</p>
+  </div>
+  <div class="deliver-card">
+    <h3>02 - Data Architecture</h3>
+    <p>Architect hybrid data platforms integrating Big data and cloud technology, and distributed ETL architectures.</p>
+  </div>
+  <div class="deliver-card">
+    <h3>03 - ML Modeling</h3>
+    <p>Develop ML pipelines for anomaly detection, churn prediction and telemetry analytics.</p>
+  </div>
+  <div class="deliver-card">
+    <h3>04 - Business Intelligence</h3>
+    <p>Build interactive dashboards and analytics systems that convert data into business insights.</p>
+  </div>
+</div>
+</section>
+
+
+<!-- PROJECTS -->
+<section id="projects">
+
+<h2 class="section-title"><em>Key Projects</em></h2>
+<p class="section-sub">Major data engineering systems I've designed and deployed.</p>
+
+<div class="timeline">
+<div class="timeline-line"></div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-date">01</div>
+
+<div>
+
+<div class="timeline-role">IoT Telemetry Pipeline & Anomaly Detection</div>
+<div class="timeline-company">Clean Energy & IoT Company</div>
+
+<div class="timeline-desc">
+Built a full device telemetry pipeline processing data and deployed ML anomaly detection to improve operational reliability.
+</div>
+
+<ul class="impact-list">
+<li><span class="impact-arrow">▸</span>Built AWS Glue + Airflow pipelines</li>
+<li><span class="impact-arrow">▸</span>Reduced reporting time by <strong>40%</strong></li>
+<li><span class="impact-arrow">▸</span>Reduced maintenance incidents by <strong>25%</strong></li>
+</ul>
+
+<div class="tech-tags">
+<span class="tag">AWS Glue</span>
+<span class="tag">Airflow</span>
+<span class="tag">Athena</span>
+<span class="tag">Python</span>
+<span class="tag">ML</span>
+</div>
+
+</div>
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-date">02</div>
+
+<div>
+
+<div class="timeline-role">Payments & Transactions ETL Platform</div>
+<div class="timeline-company">Telecom & Fintech Enterprise</div>
+
+<div class="timeline-desc">
+Engineered high-volume distributed ETL pipelines for mobile money transaction data supporting millions of users.
+</div>
+
+<ul class="impact-list">
+<li><span class="impact-arrow">▸</span>Reduced query latency by <strong>80%</strong></li>
+<li><span class="impact-arrow">▸</span>Built churn prediction ML pipelines</li>
+<li><span class="impact-arrow">▸</span>Automated telecom operations workflows</li>
+</ul>
+
+<div class="tech-tags">
+<span class="tag">Spark</span>
+<span class="tag">Kafka</span>
+<span class="tag">Airflow</span>
+<span class="tag">Python</span>
+<span class="tag">SQL</span>
+</div>
+
+</div>
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-date">03</div>
+
+<div>
+
+<div class="timeline-role">Hybrid Data Warehouse for 7M+ User App</div>
+<div class="timeline-company">EdTech Startup</div>
+
+<div class="timeline-desc">
+Designed a Hadoop and BigQuery warehouse powering analytics for a language learning platform.
+</div>
+
+<ul class="impact-list">
+<li><span class="impact-arrow">▸</span>Integrated Hadoop + BigQuery architecture</li>
+<li><span class="impact-arrow">▸</span>Supported 7M+ downloads</li>
+<li><span class="impact-arrow">▸</span>Built Looker Studio dashboards</li>
+</ul>
+
+<div class="tech-tags">
+<span class="tag">Hadoop</span>
+<span class="tag">BigQuery</span>
+<span class="tag">Airflow</span>
+<span class="tag">Looker</span>
+</div>
+
+</div>
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-date">04</div>
+
+<div>
+
+<div class="timeline-role">Automated Data Quality Framework</div>
+<div class="timeline-company">Data & Analytics Consultancy</div>
+
+<div class="timeline-desc">
+Led the end-to-end lifecycle of enterprise data products on Snowflake and Redshift. Implemented a company-wide automated data quality framework that dramatically reduced data integrity incidents.
+</div>
+
+<ul class="impact-list">
+<li><span class="impact-arrow">▸</span>Automated data quality checks with Great Expectations</li>
+<li><span class="impact-arrow">▸</span>Reduced data integrity issues by 35%</li>
+<li><span class="impact-arrow">▸</span>Drove 25% growth in data product adoption</li>
+</ul>
+
+<div class="tech-tags">
+<span class="tag">Hadoop</span>
+<span class="tag">BigQuery</span>
+<span class="tag">Airflow</span>
+<span class="tag">Looker</span>
+</div>
+
+</div>
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- TOOLS & TECHNOLOGIES -->
+<section id="experience" style="background:var(--bg2);max-width:100%;padding:60px 40px;">
+
+<div style="max-width:1100px;margin:auto;">
+<h2 class="section-title"> <em>Tools & Technologies</em></h2>
+<p class="section-sub">The full stack I work with across data platforms, ML and analytics.</p>
+
+<div class="skills-grid">
+
+  <div class="skill-group">
+    <div class="skill-group-label">Programming & Scripting</div>
+    <div class="skill-tags">
+      <span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">R</span><span class="skill-tag">Scala</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Shell Scripting</span>
+    </div>
+  </div>
+
+  <div class="skill-group">
+    <div class="skill-group-label">Data Engineering & Pipelines</div>
+    <div class="skill-tags">
+      <span class="skill-tag">Apache Airflow</span><span class="skill-tag">AWS Glue</span><span class="skill-tag">dbt</span><span class="skill-tag">Talend</span><span class="skill-tag">Informatica</span><span class="skill-tag">Azure Data Factory</span><span class="skill-tag">NiFi</span><span class="skill-tag">ETL/ELT Design</span>
+    </div>
+  </div>
+
+  <div class="skill-group">
+    <div class="skill-group-label">Big Data & Cloud Platforms</div>
+    <div class="skill-tags">
+      <span class="skill-tag">Spark</span><span class="skill-tag">Hadoop</span><span class="skill-tag">Databricks</span><span class="skill-tag">Kafka</span><span class="skill-tag">BigQuery</span><span class="skill-tag">Snowflake</span><span class="skill-tag">AWS Redshift</span><span class="skill-tag">AWS Athena</span><span class="skill-tag">Azure Synapse</span><span class="skill-tag">Terraform</span>
+    </div>
+  </div>
+
+  <div class="skill-group">
+    <div class="skill-group-label">Databases</div>
+    <div class="skill-tags">
+      <span class="skill-tag">PostgreSQL</span><span class="skill-tag">MySQL</span><span class="skill-tag">MSSQL</span><span class="skill-tag">Oracle</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Cassandra</span><span class="skill-tag">Neo4j</span>
+    </div>
+  </div>
+
+  <div class="skill-group">
+    <div class="skill-group-label">Analytics & BI Tools</div>
+    <div class="skill-tags">
+      <span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span><span class="skill-tag">Looker Studio</span><span class="skill-tag">Qlik Sense</span><span class="skill-tag">QuickSight</span><span class="skill-tag">Superset</span>
+    </div>
+  </div>
+
+  <div class="skill-group">
+    <div class="skill-group-label">Machine Learning & NLP</div>
+    <div class="skill-tags">
+      <span class="skill-tag">scikit-learn</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">PyTorch</span><span class="skill-tag">XGBoost</span><span class="skill-tag">Hugging Face</span><span class="skill-tag">spaCy</span><span class="skill-tag">LLMs</span><span class="skill-tag">NER</span>
+    </div>
+  </div>
+
+  <div class="skill-group">
+    <div class="skill-group-label">DevOps & Governance</div>
+    <div class="skill-tags">
+      <span class="skill-tag">Docker</span><span class="skill-tag">Git</span><span class="skill-tag">REST APIs</span><span class="skill-tag">Apache Atlas</span><span class="skill-tag">Open Metadata</span><span class="skill-tag">Azure Cost Management</span>
+    </div>
+  </div>
+
+</div>
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<h2 class="section-title">Let's <em>Connect</em></h2>
+        <p style="margin-bottom: 32px; color: var(--muted);">I'm currently open to new opportunities and technical collaborations.</p>
+    <a href="mailto:jobnyangala@gmail.com" class="btn-primary">Email Me</a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Job Inyangala. Engineered for performance.</p>
+</footer>
+
+</body>
+</html>
